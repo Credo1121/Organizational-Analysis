@@ -17,3 +17,7 @@ Bedrohungen/Maßnahmen: Datenzugriff ohne Login → serverseitige Sitzung; CSRF/
 Recovery: validierter JSON-Backup-Export und bewusste Restore-Übernahme; Auth-Daten/Fingerprints sind absichtlich nicht Bestandteil des Projektbackups. Wiederherstellung auf einem neuen Gerät benötigt Passwort-Setup und erneute Pseudonymisierungszuordnung bei neuen Rohdatenimports. Technischer Healthcheck gibt keine Projektinhalte aus. Keine Inhaltslogs oder Telemetrie.
 
 Testziele: Login, Importfreigabe, XSS, Quellenketten, Konflikt/Replay, Backup, Neustart und Offline-Bericht. Browser Edge/Chrome-kompatibel, hier Chromium; tatsächlicher Unternehmensrechner bleibt ungeprüft. Designscreenshot ist nur Referenz, echte UI-Evidenz wird separat erstellt.
+
+## Ergänzung: separate Pages-Frontend-Demo
+
+REQ-16 / ADR-002 ergänzt eine statische React-Demo unter src/demo. Sie nutzt gemeinsame Domain-Validierung und Editoren, hat aber keinerlei API-, Login-, Datenbank- oder Gatewayzugriff. Das Sitzungsspeichern im Browser ist kein Ersatz für den lokalen geschützten Backendbetrieb. Gebündelte relative Assets mit Inhalts-Hashes und .nojekyll erlauben App-Navigation per URL-Hash unter beiden Pages-Quellordnern. Der bisherige feste Bericht bleibt report.html; aktuelle Frontend-Änderungen erscheinen nur in der App-Berichtsvorschau. Kein Wechsel der Backendarchitektur.

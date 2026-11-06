@@ -2,19 +2,26 @@
 
 Lauffähiger erster Stand des Beratungsinstruments: CSV-Import mit Pseudonymisierung und Freigabe, Quellen, manuell bearbeitbare Findings/Cluster, Innen-/Außensicht, STAR, Prozessreife/RACI, Empfehlungen, eigenständiger HTML-Bericht und Priorisierungsaustausch.
 
-## GitHub Pages: Berichtsdemo ohne lokale Installation
+## GitHub Pages: interaktives App-Frontend ohne Installation
 
-Unter `index.html` und `docs/index.html` liegt derselbe interaktive Beispielbericht mit ausschließlich fiktiven Daten. Damit funktionieren beide GitHub-Pages-Quellordner: Hauptordner (`/`) und `/docs`. Die Startseite zeigt den Bericht statt einer gerenderten README.
+Die Startseite öffnet **OrgLens Studio**, eine eigenständige React-Frontend-Demo der Berater-App. Navigation, STAR-Radar, Quellen, Findings/Cluster, Innen-/Außensicht, RACI, Zielbildsimulation, Empfehlungen und Berichtsvorschau sind direkt im Browser nutzbar. Findings, Empfehlungen, RACI und STAR-Beispielbewertungen können manuell bearbeitet werden.
 
-**Repository → Settings → Pages → Deploy from a branch → main → /docs → Save.**
+Die Demo enthält ausschließlich erfundene Daten. Änderungen werden nur im Sitzungsspeicher des aktuellen Browser-Tabs gehalten; sie sind weder serverseitig gespeichert noch mit anderen Nutzern synchronisiert. **Kein Login, kein Upload echter Kundendaten und keine KI-Verbindung.** Der Zielbildregler ist eine UI-Simulation, keine berechnete Kapazitätsprognose.
 
-Warte auf den erfolgreichen Pages-Build und öffne die von GitHub angezeigte URL. Es ist keine lokale Node.js-Installation erforderlich, um den veröffentlichten Bericht zu betrachten und die Priorisierung auszuprobieren.
+`index.html` und `docs/index.html` referenzieren dieselben gebündelten React-/CSS-Dateien über relative Pfade. Damit funktionieren beide Pages-Quellordner, Hauptordner (`/`) und `/docs`, auch unter dem Repository-Basispfad. Die bestehende Pages-Einstellung muss nicht geändert werden; neue Commits werden durch den bestehenden Pages-Build veröffentlicht. Nach einem Update bei Bedarf hart neu laden.
 
-**Wichtig:** GitHub Pages hostet statische Dateien, keinen Node.js-/SQLite-Server. Die Demo ist deshalb der Ergebnisbericht, nicht die vollständige Berater-App. Login, Dateiimport, KI und Backend-Speicherung sind dort nicht verfügbar. Für die vollständige App im Browser brauchen wir einen passenden separaten Hostingweg; eine Umstellung auf öffentlichen Betrieb ist noch nicht erfolgt.
+Der bisherige selbstenthaltende HTML-Beispielbericht bleibt unter `report.html` und `docs/report.html` erhalten. Er ist ein fester Musterstand; neue Änderungen aus der Frontend-Sitzung erscheinen in der **Berichtsvorschau** der App, nicht automatisch in diesem alten HTML-Beispiel. Die Vorschau lässt sich über Drucken/PDF ausgeben.
 
-Die Demo wird mit `npm run build:pages` ausschließlich aus erfundenen Beispieldaten neu erzeugt. Der Generator liest keine lokalen Projektdaten. Repository-Sichtbarkeit in GitHub und `private: true` in package.json sind unabhängig voneinander.
+Für Entwickler:
 
-Die beiden Einstiegspunkte inklusive Radar, Quellen-Drill-down, mobiler Darstellung und Priorisierungsdownload lassen sich mit `npm run test:pages` im Browser prüfen. Die Tests benötigen denselben Chromium-Pfad wie der übrige Browsertest.
+```sh
+npm run build:pages
+npm run test:pages
+```
+
+Der Generator verwendet ausschließlich fiktive Daten, prüft den Bundlegraphen auf ausgeschlossene Servermodule und erzeugt versionierte Assetnamen gegen veraltete Browsercaches. Third-Party-Lizenzhinweise bleiben im Bundle erhalten. Die Tests benötigen Chromium wie der übrige Browsertest. Für den Nutzer ist keine lokale Node.js-Installation nötig.
+
+GitHub Pages führt weiterhin keinen Node.js-/SQLite-Server aus. Die vollständige lokale Backend-App bleibt separat vorhanden und unverändert; die Frontend-Demo täuscht deren Anmeldung oder Speicherung nicht vor. Architektur: [ADR-002](docs/adr/ADR-002.md), Umfang: [REQ-16](docs/requirements/REQ-16.md).
 
 ## Lokal starten
 
@@ -75,7 +82,8 @@ Der Bericht besitzt keinen App-Login: Wer die Datei erhält, kann die enthaltene
 
 ```text
 src/app/          Next.js-Seiten und schmale API-Routen
-src/components/   React-Oberfläche, Editoren, Importdialog, Radar
+src/components/   Gemeinsame React-Editoren und lokale Backend-Oberfläche
+src/demo/         Statische Frontend-Demo mit eigenen Arbeitsbereichen
 src/domain/       Zod-Verträge, Referenz-/Fachregeln, CSV, Bericht
 src/server/       SQLite, Authentifizierung, API-Orchestrierung
 scripts/          Lokales Passwort-Setup und Startskript

@@ -21,3 +21,5 @@ Stand: 06.11.2026. Nutzer hat Featureumfang zur PoC-Umsetzung bestätigt. Techni
 | [REQ-15](requirements/REQ-15.md) | AC-01, AC-02, AC-03, AC-04, AC-05 | [API/Domain-Vertrag](contracts/local-api.md) | src/domain, src/server, src/components · PoC-Teilumfang | [Geprüfte AC und Grenzen](qa/CHG-002.md) |
 
 Quellen: [Discovery](discovery/organizational-analysis.md). Visuelle Konzeptbilder sind keine Testevidenz.
+
+Frontend-Erweiterung: [REQ-16](requirements/REQ-16.md) AC-01–06 → [ADR-002](adr/ADR-002.md) → src/demo / scripts/build-pages.ts → tests/pages-entry.test.mjs und [CHG-005](qa/CHG-005.md). Keine Aussage über Backend-/Gateway-Erfüllung durch die statische Demo.
