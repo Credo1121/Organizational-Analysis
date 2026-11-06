@@ -84,4 +84,3 @@ Vor Ready: klarer Scope, fachliche Kriterien und notwendige technische Vorausset
 Der lokale PoC ist implementiert. 6 Fach-/SQLite-Testgruppen, 1 Browser-Kernreise, Typprüfung, Build und Formatprüfung bestanden. [Prüfbericht mit AC-Abgrenzung und echten Screenshots](../qa/CHG-002.md). Noch nicht umgesetzte oder ungeprüfte Kriterien bleiben offen; Konzeptbilder sind keine Testevidenz.
 
 Nächster Arbeitsmodus: web-requirements für fachliches Review des laufenden PoC. Architektur, Verträge und erste Tests liegen vor. Anschließend Gateway und kundenspezifische CSV-Struktur konkretisieren; I2/I3 bleiben als Folgeslices bestehen.
-

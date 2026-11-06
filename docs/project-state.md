@@ -12,4 +12,3 @@
 - Nächster Schritt: fachliches Review des PoC mit Nutzer; danach kundenspezifische CSV-Vorlagen und internes Gateway klären. Siehe [Anforderungen](requirements/README.md) und [Traceability](traceability.md).
 - Nutzer hat den GitHub-Push beauftragt und möchte die Sichtbarkeit selbst auf Public ändern. Übergabe wird gemäß [REL-001](releases/REL-001.md) ausgeführt; Commit-/Remote-Nachweis folgt im Übergabeprotokoll.
 - [Statische Pages-Demo](index.html) ist ausschließlich ein fiktiver Ergebnisbericht. Vollständige App mit Login/SQLite kann nicht auf GitHub Pages betrieben werden; alternativer Hostingweg bleibt zu klären. Pages-Aktivierung und Live-Smoke-Test noch nicht belegt.
-

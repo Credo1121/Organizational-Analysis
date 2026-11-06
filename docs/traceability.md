@@ -21,4 +21,3 @@ Stand: 06.11.2026. Nutzer hat Featureumfang zur PoC-Umsetzung bestätigt. Techni
 | [REQ-15](requirements/REQ-15.md) | AC-01, AC-02, AC-03, AC-04, AC-05 | [API/Domain-Vertrag](contracts/local-api.md) | src/domain, src/server, src/components · PoC-Teilumfang | [Geprüfte AC und Grenzen](qa/CHG-002.md) |
 
 Quellen: [Discovery](discovery/organizational-analysis.md). Visuelle Konzeptbilder sind keine Testevidenz.
-
