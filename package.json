@@ -15,7 +15,8 @@
     "setup:local": "node --import tsx scripts/setup.ts",
     "format": "prettier --write src scripts tests *.ts *.json",
     "format:check": "prettier --check src scripts tests *.ts *.json",
-    "build:pages": "node --import tsx scripts/build-pages.ts"
+    "build:pages": "node --import tsx scripts/build-pages.ts",
+    "test:pages": "node --test tests/pages-entry.test.mjs"
   },
   "dependencies": {
     "next": "16.4.5",

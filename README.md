@@ -4,7 +4,7 @@ Lauffähiger erster Stand des Beratungsinstruments: CSV-Import mit Pseudonymisie
 
 ## GitHub Pages: Berichtsdemo ohne lokale Installation
 
-Unter `docs/index.html` liegt ein interaktiver Beispielbericht mit ausschließlich fiktiven Daten. Diese Datei kann direkt über GitHub Pages bereitgestellt werden:
+Unter `index.html` und `docs/index.html` liegt derselbe interaktive Beispielbericht mit ausschließlich fiktiven Daten. Damit funktionieren beide GitHub-Pages-Quellordner: Hauptordner (`/`) und `/docs`. Die Startseite zeigt den Bericht statt einer gerenderten README.
 
 **Repository → Settings → Pages → Deploy from a branch → main → /docs → Save.**
 
@@ -13,6 +13,8 @@ Warte auf den erfolgreichen Pages-Build und öffne die von GitHub angezeigte URL
 **Wichtig:** GitHub Pages hostet statische Dateien, keinen Node.js-/SQLite-Server. Die Demo ist deshalb der Ergebnisbericht, nicht die vollständige Berater-App. Login, Dateiimport, KI und Backend-Speicherung sind dort nicht verfügbar. Für die vollständige App im Browser brauchen wir einen passenden separaten Hostingweg; eine Umstellung auf öffentlichen Betrieb ist noch nicht erfolgt.
 
 Die Demo wird mit `npm run build:pages` ausschließlich aus erfundenen Beispieldaten neu erzeugt. Der Generator liest keine lokalen Projektdaten. Repository-Sichtbarkeit in GitHub und `private: true` in package.json sind unabhängig voneinander.
+
+Die beiden Einstiegspunkte inklusive Radar, Quellen-Drill-down, mobiler Darstellung und Priorisierungsdownload lassen sich mit `npm run test:pages` im Browser prüfen. Die Tests benötigen denselben Chromium-Pfad wie der übrige Browsertest.
 
 ## Lokal starten
 
