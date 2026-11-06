@@ -1,0 +1,9 @@
+{
+  "timestamp": "2026-11-06T11:26:45.619Z",
+  "status": "PASS",
+  "site": "local HTTP rendering of docs/index.html",
+  "desktop": "1440x1000",
+  "mobile": "390x844",
+  "priorityDownload": true,
+  "githubLiveVerified": false
+}

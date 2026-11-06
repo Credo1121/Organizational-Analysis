@@ -1,0 +1,3 @@
+id;process;step;currentRole;targetRole;current;target;source;evidence
+P-101;Produktentstehung;Anforderungen bewerten;C;R;2;4;INT-10;Verantwortung vereinbart und Wirksamkeit überprüft
+P-102;Lifecycle;Portfolio überprüfen;R;A;1;3;INT-10;Regelmäßige dokumentierte Portfolioentscheidungen

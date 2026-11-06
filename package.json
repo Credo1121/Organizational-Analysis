@@ -1,0 +1,35 @@
+{
+  "name": "orglens-local",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "dev": "node scripts/run.mjs dev",
+    "build": "node scripts/run.mjs build",
+    "start": "node scripts/run.mjs start",
+    "typecheck": "tsc --noEmit",
+    "test": "node --import tsx tests/domain.test.ts",
+    "test:e2e": "playwright test",
+    "setup:local": "node --import tsx scripts/setup.ts",
+    "format": "prettier --write src scripts tests *.ts *.json",
+    "format:check": "prettier --check src scripts tests *.ts *.json",
+    "build:pages": "node --import tsx scripts/build-pages.ts"
+  },
+  "dependencies": {
+    "next": "16.4.5",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.65.0",
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "prettier": "3.9.10",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0"
+  }
+}
