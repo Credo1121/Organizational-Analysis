@@ -12,3 +12,13 @@
 - GitHub Pages unterstützt den Ergebnisbericht, nicht die Next.js-/SQLite-Berater-App. Für deren Onlinebetrieb ist ein separater Node-fähiger Host mit persistentem Speicher und angepasstem Zugriffsschutz erforderlich. Kein solcher Anbieter gewählt oder öffentliches Backend bereitgestellt.
 
 Aktivierung und Rollback: [REL-001](REL-001.md). Technische PoC-Evidenz: [CHG-002](../qa/CHG-002.md).
+
+## Nachprüfung zur gewünschten vollautomatischen Aktivierung
+
+Nutzer bestätigt zunächst die GitHub-Pages-Berichtsdemo und fordert ausdrücklich Commit/Push ohne weitere manuelle Schritte. Bereits vorhandener GitHub-Stand vor dieser Nachprüfung: be35cdfd6a4cc69ab6a4b8faa1da0dfdaefcfc8b.
+
+Vorhandene GitHub-CLI-Authentifizierung wiederverwendet, keine Tokenwerte gelesen/ausgegeben. Lesende Aufrufe auf Repository-Metadaten und Pages-Konfiguration über gh api werden mit `Get https://api.github.com/...: Forbidden` abgewiesen. Der aktuelle unterstützte Netzwerk-Policy-Snapshot erlaubt github.com/raw.githubusercontent.com, enthält api.github.com aber nicht. Deshalb sind aktuelle Repository-Sichtbarkeit, Pages-Konfiguration und administrative API-Berechtigungen nicht verifiziert. Git-Proxy-Zugriff funktioniert unabhängig davon.
+
+Offizielle Quelle geprüft: https://raw.githubusercontent.com/actions/configure-pages/v5/action.yml. Die erstmalige Aktivierung über enablement erfordert ausdrücklich einen anderen, ausreichend berechtigten Token als GITHUB_TOKEN. Kein nicht funktionierender Aktivierungsworkflow und keine Kopie vorhandener Zugangsdaten in Actions angelegt. Keine Sicherheits-/Netzwerkregel umgangen.
+
+Externe Voraussetzung: Pages einmalig in den Repository-Einstellungen aktivieren (main /docs), oder in einer dafür freigegebenen Umgebung API-/Admin-Zugriff bereitstellen. Danach lösen reguläre Pushes auf die konfigurierte Quelle die Pages-Veröffentlichung aus. Derzeit kein belegter Live-Deploymentstatus. Dieses Nachprüfungsprotokoll wird regulär committed und gepusht; kein Anwendungscode geändert.
